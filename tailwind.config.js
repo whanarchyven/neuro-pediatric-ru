@@ -22,6 +22,7 @@ module.exports = {
       scale: {
         90: '0.9',
         120: '1.2',
+        '-1': '-1',
       },
       animation: {
         'spin-slow': 'spinSlow 5s linear infinite',
@@ -229,6 +230,12 @@ module.exports = {
       ],
       sm: [
         '1.4rem',
+        {
+          lineHeight: '120%',
+        },
+      ],
+      xs: [
+        '1.2rem',
         {
           lineHeight: '120%',
         },

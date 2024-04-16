@@ -1,10 +1,18 @@
-import MainBlock from '@/widgets/main-block/ui';
+import MainBlock, { MainBlockInterface } from '@/widgets/main-block';
 import AnamnesIcon from '../../public/icons/profile.svg';
 import ConsultationIcon from '../../public/icons/consultation.svg';
 import TabletsIcon from '../../public/icons/tablets.svg';
+import TreatmentStage, {
+  TreatmentStageInterface,
+} from '@/widgets/treatment-stage';
+import LastBlock, { LastBlockInterface } from '@/widgets/last-block';
 
 export default function Home() {
-  const data = {
+  const data: {
+    mainBlock: MainBlockInterface;
+    treatmentStages: TreatmentStageInterface[];
+    lastBlock: LastBlockInterface;
+  } = {
     mainBlock: {
       title: 'Персональная программа \n' + 'по уходу за кожей',
       description: (
@@ -48,15 +56,270 @@ export default function Home() {
         },
       ],
     },
+    treatmentStages: [
+      {
+        title: '1. Подсушивание и успокоение кожи:',
+        description: (
+          <ul>
+            <li>
+              Начните с аккуратного подсушивания и успокоения кожи ребенка.
+            </li>
+            <li>
+              При наличии мокнущих высыпаний, используйте стерильные марлевые
+              салфетки, смоченные одним из нижеперечисленных средств. (гиф как
+              это делать)
+            </li>
+            <li>
+              Меняйте примочки каждые 5-10 минут до подсушивания высыпаний.
+            </li>
+            <li>
+              <strong>Не удаляйте корки насильно</strong>; они отторгнутся
+              самостоятельно.
+            </li>
+          </ul>
+        ),
+        drugs: [
+          {
+            title: (
+              <p>
+                La Roche-Posay
+                <br />
+                Lipikar Lait
+              </p>
+            ),
+            description: (
+              <p>
+                <strong>Категория 1:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+                <br />
+                <br />
+                <strong>Категория 2:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+              </p>
+            ),
+            image:
+              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            buyLink:
+              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
+          },
+          {
+            title: (
+              <p>
+                La Roche-Posay
+                <br />
+                Lipikar Lait
+              </p>
+            ),
+            description: (
+              <p>
+                <strong>Категория 1:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+                <br />
+                <br />
+                <strong>Категория 2:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+              </p>
+            ),
+            image:
+              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            buyLink:
+              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
+          },
+        ],
+      },
+      {
+        title: '1. Подсушивание и успокоение кожи:',
+        description: (
+          <ul>
+            <li>
+              Начните с аккуратного подсушивания и успокоения кожи ребенка.
+            </li>
+            <li>
+              При наличии мокнущих высыпаний, используйте стерильные марлевые
+              салфетки, смоченные одним из нижеперечисленных средств. (гиф как
+              это делать)
+            </li>
+            <li>
+              Меняйте примочки каждые 5-10 минут до подсушивания высыпаний.
+            </li>
+            <li>
+              <strong>Не удаляйте корки насильно</strong>; они отторгнутся
+              самостоятельно.
+            </li>
+          </ul>
+        ),
+        drugs: [
+          {
+            title: (
+              <p>
+                La Roche-Posay
+                <br />
+                Lipikar Lait
+              </p>
+            ),
+            description: (
+              <p>
+                <strong>Категория 1:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+                <br />
+                <br />
+                <strong>Категория 2:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+              </p>
+            ),
+            image:
+              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            buyLink:
+              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
+          },
+          {
+            title: (
+              <p>
+                La Roche-Posay
+                <br />
+                Lipikar Lait
+              </p>
+            ),
+            description: (
+              <p>
+                <strong>Категория 1:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+                <br />
+                <br />
+                <strong>Категория 2:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+              </p>
+            ),
+            image:
+              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            buyLink:
+              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
+          },
+        ],
+      },
+    ],
+    lastBlock: {
+      title: 'Средства для ежедневного ухода',
+      description: (
+        <p>
+          <strong>Помните!</strong> Соблюдайте рекомендации Вашего лечащего
+          врача! Не занимайтесь самолечением! Рекомендации по уходу за кожей̆
+          наиболее эффективны при соблюдении режима лечения, предписанного
+          врачом!{' '}
+        </p>
+      ),
+      advices: [
+        {
+          reason: 'Купание',
+          product: {
+            title: (
+              <p>
+                La Roche-Posay
+                <br />
+                Lipikar Lait
+              </p>
+            ),
+            description: (
+              <p>
+                <strong>Категория 1:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+                <br />
+                <br />
+                <strong>Категория 2:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+              </p>
+            ),
+            image:
+              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            buyLink:
+              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
+          },
+        },
+        {
+          reason: 'Увлажнение',
+          product: {
+            title: (
+              <p>
+                La Roche-Posay
+                <br />
+                Lipikar Lait
+              </p>
+            ),
+            description: (
+              <p>
+                <strong>Категория 1:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+                <br />
+                <br />
+                <strong>Категория 2:</strong>
+                <br />
+                <br />
+                используйте 1-2 раза в сутки, дополнительно по потребности.
+                Подходит с первых дней жизни.
+              </p>
+            ),
+            image:
+              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            buyLink:
+              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
+          },
+        },
+      ],
+    },
   };
 
   return (
     <>
-      <main>
+      <main className={'flex flex-col gap-2'}>
         <MainBlock
           description={data.mainBlock.description}
           title={data.mainBlock.title}
           tiles={data.mainBlock.tiles}
+        />
+        <div className={'flex sm:px-10 p-2 flex-col gap-2'}>
+          {data.treatmentStages.map(
+            (stage: TreatmentStageInterface, index: number) => {
+              return <TreatmentStage key={index} displayArrow {...stage} />;
+            }
+          )}
+        </div>
+        <LastBlock
+          title={data.lastBlock.title}
+          description={data.lastBlock.description}
+          advices={data.lastBlock.advices}
         />
       </main>
     </>

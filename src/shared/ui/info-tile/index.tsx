@@ -10,7 +10,9 @@ export interface InfoTileInterface extends VariantProps<typeof cvaRoot> {
 }
 
 const cvaRoot = cva(
-  ['p-4 rounded-xl text-base flex justify-center gap-4 text-white items-start'],
+  [
+    'sm:p-4 p-2 rounded-xl text-base flex justify-center gap-4 text-white items-start',
+  ],
   {
     variants: {
       isActive: {
@@ -21,8 +23,8 @@ const cvaRoot = cva(
     defaultVariants: { isActive: false },
   }
 );
-const cvaTitle = cva(['font-bold']);
-const cvaDescription = cva(['font-normal']);
+const cvaTitle = cva(['sm:text-base text-sm font-bold']);
+const cvaDescription = cva(['sm:text-base text-xs font-normal']);
 const InfoTile: FC<InfoTileInterface> = ({
   title,
   description,
