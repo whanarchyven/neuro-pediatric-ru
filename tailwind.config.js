@@ -14,7 +14,8 @@ module.exports = {
       colors: {
         cBlack: '#000',
         cWhite: '#fff',
-        cOrange:'#FF7759'
+        cOrange: '#FF7759',
+        cGray: '#D9D9D9',
       },
       minHeight: {},
       boxShadow: {},
@@ -203,7 +204,7 @@ module.exports = {
         },
       ],
       xl: [
-        '5.6rem',
+        '3.4rem',
         {
           'line-height': '120%',
         },

@@ -3,9 +3,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utils{
-  .tile-shadow{
-    filter: drop-shadow(0 0 5rem #FF7759);
+@layer utils {
+  .tile-shadow {
+    filter: drop-shadow(0 0 5rem #ff7759);
+  }
+
+  .main-bloc-bg-mask {
+    -webkit-mask-image: linear-gradient(#d9d9d9, rgba(255, 255, 255, 0));
+    mask-image: linear-gradient(#d9d9d9, rgba(255, 255, 255, 0));
+  }
+
+  .info-tab {
+    box-shadow:
+      inset 4px 0px 4px rgba(0, 0, 0, 0.25),
+      inset -2px 2px 0px rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    border-radius: 999px;
   }
 }
 
@@ -25,8 +38,8 @@ html {
 html,
 body {
   height: 100%;
-  background: radial-gradient(circle, #5ECCB8, #005D52,#012D37);
-  font-family: "Inter";
+  background: radial-gradient(circle, #5eccb8, #005d52, #012d37);
+  font-family: 'Inter';
 }
 
 select {

@@ -46,7 +46,7 @@ export default function RootLayout({ children, ...rest }: RootLayoutProps) {
       </head>
       <body>
         <ReduxProvider {...rest}>
-            <div id="app">{children}</div>
+          <div id="app">{children}</div>
         </ReduxProvider>
       </body>
     </html>
