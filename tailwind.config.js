@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         cBlack: '#000',
         cWhite: '#fff',
+        cOrange:'#FF7759'
       },
       minHeight: {},
       boxShadow: {},

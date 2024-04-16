@@ -2,7 +2,6 @@ import './globals.css';
 import React from 'react';
 import type { Metadata } from 'next';
 import ReduxProvider from '@/shared/store/ReduxProvider';
-import SmoothScroll from '@/shared/ui/SmoothScroll/SmoothScroll';
 import { RemResizeScript } from '@/features/rem-resize';
 
 // import 'swiper/css';
@@ -47,9 +46,7 @@ export default function RootLayout({ children, ...rest }: RootLayoutProps) {
       </head>
       <body>
         <ReduxProvider {...rest}>
-          <SmoothScroll>
             <div id="app">{children}</div>
-          </SmoothScroll>
         </ReduxProvider>
       </body>
     </html>
