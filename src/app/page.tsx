@@ -59,6 +59,7 @@ export default function Home() {
     treatmentStages: [
       {
         title: '1. Подсушивание и успокоение кожи:',
+        image: '/images/derma.jpg',
         description: (
           <ul>
             <li>
@@ -103,8 +104,7 @@ export default function Home() {
                 Подходит с первых дней жизни.
               </p>
             ),
-            image:
-              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            image: '/images/la-roche.jpg',
             buyLink:
               'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
           },
@@ -132,8 +132,7 @@ export default function Home() {
                 Подходит с первых дней жизни.
               </p>
             ),
-            image:
-              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            image: '/images/la-roche.jpg',
             buyLink:
               'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
           },
@@ -141,6 +140,7 @@ export default function Home() {
       },
       {
         title: '1. Подсушивание и успокоение кожи:',
+        image: '/images/derma.jpg',
         description: (
           <ul>
             <li>
@@ -185,8 +185,7 @@ export default function Home() {
                 Подходит с первых дней жизни.
               </p>
             ),
-            image:
-              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            image: '/images/la-roche.jpg',
             buyLink:
               'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
           },
@@ -214,8 +213,7 @@ export default function Home() {
                 Подходит с первых дней жизни.
               </p>
             ),
-            image:
-              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            image: '/images/la-roche.jpg',
             buyLink:
               'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
           },
@@ -259,8 +257,7 @@ export default function Home() {
                 Подходит с первых дней жизни.
               </p>
             ),
-            image:
-              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            image: '/images/la-roche.jpg',
             buyLink:
               'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
           },
@@ -291,8 +288,7 @@ export default function Home() {
                 Подходит с первых дней жизни.
               </p>
             ),
-            image:
-              'https://www.laroche-posay.fr/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/fr_FR/dwac5618cd/LRP_Product/Lipikar/3337875552127_Lipikar-Body-Milk_400ml_01_La-Roche-Posay.jpg?sw=465&sh=465&sm=cut&sfrm=jpg&q=70',
+            image: '/images/la-roche.jpg',
             buyLink:
               'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
           },
