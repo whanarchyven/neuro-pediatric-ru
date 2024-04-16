@@ -23,7 +23,6 @@ const ProductCard: FC<ProductCardInterface> = ({
         <img
           className={'w-full aspect-square object-cover rounded-xl'}
           src={image}
-          alt={title}
         />
       ) : (
         <div
