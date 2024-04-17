@@ -1,11 +1,12 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
+import ReactMarkdown from 'react-markdown';
 
 export interface InfoTileInterface extends VariantProps<typeof cvaRoot> {
-  title?: ReactNode;
-  description: ReactNode;
-  icon: ReactNode;
+  title?: string;
+  description: string;
+  icon: string;
   className?: string;
 }
 
@@ -34,10 +35,12 @@ const InfoTile: FC<InfoTileInterface> = ({
 }) => {
   return (
     <div className={clsx(cvaRoot({ isActive }), className)}>
-      {icon}
+      <img src={icon} className="w-4" />
       <div className={'flex flex-col gap-1'}>
-        <div className={cvaTitle()}>{title}</div>
-        <div className={cvaDescription()}>{description}</div>
+        <ReactMarkdown className={cvaTitle()}>{title}</ReactMarkdown>
+        <ReactMarkdown className={cvaDescription()}>
+          {description}
+        </ReactMarkdown>
       </div>
     </div>
   );

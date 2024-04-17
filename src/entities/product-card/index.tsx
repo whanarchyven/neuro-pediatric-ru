@@ -1,10 +1,11 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 
 export interface ProductCardInterface {
-  title: ReactNode;
-  description?: ReactNode;
+  title: string;
+  description?: string;
   image?: string;
   buyLink?: string;
   className?: string;
@@ -30,8 +31,10 @@ const ProductCard: FC<ProductCardInterface> = ({
             'bg-black w-full bg-opacity-10 aspect-square rounded-xl'
           }></div>
       )}
-      <div className={'font-extrabold'}>{title}</div>
-      <div className={'leading-[110%] text-sm'}>{description}</div>
+      <ReactMarkdown className={'font-extrabold'}>{title}</ReactMarkdown>
+      <ReactMarkdown className={'leading-[110%] whitespace-pre-line text-sm'}>
+        {description}
+      </ReactMarkdown>
       {buyLink && (
         <Link
           href={buyLink}

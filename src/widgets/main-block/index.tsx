@@ -1,12 +1,13 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import MainBlockBgImage from '@/widgets/main-block/ui/main-block-bg-image';
 import InfoTab from '@/shared/ui/info-tab';
 import InfoTile, { InfoTileInterface } from '@/shared/ui/info-tile';
 import ArrowsIcon from '../../../public/images/arrows_mainblock.svg';
+import ReactMarkdown from 'react-markdown';
 
 export interface MainBlockInterface {
-  title: ReactNode;
-  description: ReactNode;
+  title: string;
+  description: string;
   tiles: InfoTileInterface[];
 }
 
@@ -18,15 +19,15 @@ const MainBlock: FC<MainBlockInterface> = ({ title, tiles, description }) => {
       </div>
       <InfoTab>
         <div className={'flex flex-col text-white p-4 sm:p-8 gap-4'}>
-          <div className={'whitespace-pre sm:text-xl font-extrabold'}>
+          <ReactMarkdown className={'whitespace-pre sm:text-xl font-extrabold'}>
             {title}
-          </div>
-          <div
+          </ReactMarkdown>
+          <ReactMarkdown
             className={
-              'sm:whitespace-pre pl-2 text-sm whitespace-pre-wrap sm:text-base sm:pl-5 border-l-2 border-white'
+              'sm:whitespace-pre-line pl-2 text-sm whitespace-pre-wrap sm:text-base sm:pl-5 border-l-2 border-white'
             }>
             {description}
-          </div>
+          </ReactMarkdown>
         </div>
       </InfoTab>
       <InfoTab>

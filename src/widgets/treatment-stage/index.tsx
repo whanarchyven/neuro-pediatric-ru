@@ -1,11 +1,12 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import ProductCard, { ProductCardInterface } from '@/entities/product-card';
 import InfoTab from '@/shared/ui/info-tab';
 import ArrowIcon from '../../../public/images/arrow_infoblock.svg';
+import ReactMarkdown from 'react-markdown';
 
 export interface TreatmentStageInterface {
   title: string;
-  description?: ReactNode;
+  description?: string;
   image?: string;
   drugs?: ProductCardInterface[];
   displayArrow?: boolean;
@@ -31,9 +32,10 @@ const TreatmentStage: FC<TreatmentStageInterface> = ({
           className={
             'flex sm:flex-row flex-col-reverse mt-3 justify-between gap-4'
           }>
-          <div className={'text-white text-xs w-full sm:text-base sm:w-1/2'}>
+          <ReactMarkdown
+            className={'text-white text-xs w-full sm:text-base sm:w-1/2'}>
             {description}
-          </div>
+          </ReactMarkdown>
           {image ? (
             <img
               src={image}
