@@ -33,6 +33,7 @@
     "eslint-plugin-next": "^0.0.0",
     "formik": "^2.4.3",
     "framer-motion": "^10.12.12",
+    "google-spreadsheet": "^4.1.2",
     "next": "^14.0.4",
     "next-redux-wrapper": "^8.1.0",
     "nookies": "^2.5.2",
