@@ -1,14 +1,38 @@
+'use client';
+// app/page.tsx
 import MainBlock, { MainBlockInterface } from '@/widgets/main-block';
 import TreatmentStage, {
   TreatmentStageInterface,
 } from '@/widgets/treatment-stage';
-import LastBlock, { LastBlockInterface } from '@/widgets/last-block';
+// import LastBlock, {LastBlockInterface} from '@/widgets/last-block';
+import { getAnamnes } from '@/shared/utils/getAnamnes';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import LoadingIcon from '../../loading.svg';
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const queryParams = new URLSearchParams(
+        searchParams.toString()
+      ).toString();
+      const res = await fetch(`/api/products?${queryParams}`);
+      const data = await res.json();
+      setProducts(data);
+      setIsLoading(false);
+    };
+    fetchProducts();
+  }, [searchParams]);
+
+  const anamnes = getAnamnes('2');
+
   const data: {
     mainBlock: MainBlockInterface;
     treatmentStages: TreatmentStageInterface[];
-    lastBlock: LastBlockInterface;
   } = {
     mainBlock: {
       title: 'Персональная программа \n' + 'по уходу за кожей',
@@ -21,8 +45,7 @@ export default function Home() {
       tiles: [
         {
           title: 'Анамнез:',
-          description:
-            'Имеются участки выраженного покраснения кожи с наличием корок и явлениями мокнутия, сопровождающиеся сильным зудом.',
+          description: anamnes,
           icon: '/icons/profile.svg',
         },
         {
@@ -38,149 +61,42 @@ export default function Home() {
         },
       ],
     },
-    treatmentStages: [
-      {
-        title: '1. Подсушивание и успокоение кожи:',
-        image: '/images/derma.jpg',
-        description:
-          '- Начните с аккуратного подсушивания и успокоения кожи ребенка.\n' +
-          '- При наличии мокнущих высыпаний, используйте стерильные марлевые салфетки, смоченные одним из нижеперечисленных средств. (гиф как это делать)\n' +
-          '- Меняйте примочки каждые 5-10 минут до подсушивания высыпаний.\n' +
-          '- **Не удаляйте корки насильно**; они отторгнутся самостоятельно.\n',
-        drugs: [
-          {
-            title: 'La Roche-Posay\n' + 'Lipikar Lait\n',
-            description:
-              '**Категория 1:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n' +
-              '\n' +
-              '**Категория 2:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n',
-            image: '/images/la-roche.jpg',
-            buyLink:
-              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
-          },
-          {
-            title: 'La Roche-Posay\n' + 'Lipikar Lait\n',
-            description:
-              '**Категория 1:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n' +
-              '\n' +
-              '**Категория 2:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n',
-            image: '/images/la-roche.jpg',
-            buyLink:
-              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
-          },
-        ],
-      },
-      {
-        title: '1. Подсушивание и успокоение кожи:',
-        image: '/images/derma.jpg',
-        description:
-          '- Начните с аккуратного подсушивания и успокоения кожи ребенка.\n' +
-          '- При наличии мокнущих высыпаний, используйте стерильные марлевые салфетки, смоченные одним из нижеперечисленных средств. (гиф как это делать)\n' +
-          '- Меняйте примочки каждые 5-10 минут до подсушивания высыпаний.\n' +
-          '- **Не удаляйте корки насильно**; они отторгнутся самостоятельно.\n',
-        drugs: [
-          {
-            title: 'La Roche-Posay\n' + 'Lipikar Lait\n',
-            description:
-              '**Категория 1:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n' +
-              '\n' +
-              '**Категория 2:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n',
-            image: '/images/la-roche.jpg',
-            buyLink:
-              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
-          },
-          {
-            title: 'La Roche-Posay\n' + 'Lipikar Lait\n',
-            description:
-              '**Категория 1:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n' +
-              '\n' +
-              '**Категория 2:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n',
-            image: '/images/la-roche.jpg',
-            buyLink:
-              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
-          },
-        ],
-      },
-    ],
-    lastBlock: {
-      title: 'Средства для ежедневного ухода',
-      description:
-        '**Помните!** Соблюдайте рекомендации Вашего лечащего врача! Не занимайтесь самолечением! Рекомендации по уходу за кожей̆ наиболее эффективны при соблюдении режима лечения, предписанного врачом!\n',
-      advices: [
-        {
-          reason: 'Купание',
-          product: {
-            title: 'La Roche-Posay\n' + 'Lipikar Lait\n',
-            description:
-              '**Категория 1:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n' +
-              '\n' +
-              '**Категория 2:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n',
-            image: '/images/la-roche.jpg',
-            buyLink:
-              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
-          },
-        },
-        {
-          reason: 'Увлажнение',
-          product: {
-            title: 'La Roche-Posay\n' + 'Lipikar Lait\n',
-            description:
-              '**Категория 1:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n' +
-              '\n' +
-              '**Категория 2:**\n' +
-              '\n' +
-              'используйте 1-2 раза в сутки, дополнительно по потребности. Подходит с первых дней жизни.\n',
-            image: '/images/la-roche.jpg',
-            buyLink:
-              'https://www.laroche-posay.fr/gammes/corps/lipikar/lipikar-soin/lipikar-lait-hydratant-corps/LRP_091.html',
-          },
-        },
-      ],
-    },
+    treatmentStages: [],
   };
 
   return (
     <>
       <main className={'flex flex-col gap-2'}>
+        {isLoading && (
+          <div
+            className={
+              'fixed top-0 left-0 loading z-50 w-full h-full flex justify-center items-center'
+            }>
+            <LoadingIcon className={'w-[50px] aspect-square animate-spin'} />
+          </div>
+        )}
+
         <MainBlock
           description={data.mainBlock.description}
           title={data.mainBlock.title}
           tiles={data.mainBlock.tiles}
         />
         <div className={'flex sm:px-10 p-2 flex-col gap-2'}>
-          {data.treatmentStages.map(
-            (stage: TreatmentStageInterface, index: number) => {
-              return <TreatmentStage key={index} displayArrow {...stage} />;
+          {products.map((stage: any, index: number) => {
+            if (stage.stage_title) {
+              return (
+                <TreatmentStage
+                  key={index}
+                  displayArrow
+                  title={stage.stage_title}
+                  image={`/images/stages/${stage.stage_image}`}
+                  description={stage.stage_description}
+                  drugs={stage.preparats}
+                />
+              );
             }
-          )}
+          })}
         </div>
-        <LastBlock
-          title={data.lastBlock.title}
-          description={data.lastBlock.description}
-          advices={data.lastBlock.advices}
-        />
       </main>
     </>
   );

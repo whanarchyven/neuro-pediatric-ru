@@ -1,5 +1,5 @@
 import './globals.css';
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import ReduxProvider from '@/shared/store/ReduxProvider';
 import { RemResizeScript } from '@/features/rem-resize';
@@ -46,7 +46,9 @@ export default function RootLayout({ children, ...rest }: RootLayoutProps) {
       </head>
       <body>
         <ReduxProvider {...rest}>
-          <div id="app">{children}</div>
+          <Suspense>
+            <div id="app">{children}</div>
+          </Suspense>
         </ReduxProvider>
       </body>
     </html>

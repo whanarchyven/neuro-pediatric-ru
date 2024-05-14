@@ -25,7 +25,7 @@ const TreatmentStage: FC<TreatmentStageInterface> = ({
         {displayArrow && (
           <ArrowIcon className="sm:w-[17rem] w-[10rem] h-[21rem] sm:h-[40rem] sm:-top-[30rem] -top-[19rem] absolute -right-[3rem] sm:right-0 rounded-full" />
         )}
-        <p className={'text-white font-extrabold text-base sm:text-xl'}>
+        <p className={'text-white font-extrabold w-3/4 text-base sm:text-xl'}>
           {title}
         </p>
         <div
@@ -55,7 +55,7 @@ const TreatmentStage: FC<TreatmentStageInterface> = ({
             </p>
             <div
               className={
-                'flex items-center sm:flex-row flex-col flex-wrap justify-between gap-2 sm:gap-10'
+                'flex items-start sm:flex-row flex-col flex-wrap justify-between gap-2 sm:gap-10'
               }>
               {drugs.map((drug, counter) => {
                 return (

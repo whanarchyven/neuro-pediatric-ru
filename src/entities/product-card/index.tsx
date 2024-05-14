@@ -4,26 +4,43 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
 export interface ProductCardInterface {
-  title: string;
-  description?: string;
-  image?: string;
-  buyLink?: string;
+  is_active: string;
+  brand: string;
+  name: string;
+  type: string;
+  description: string;
+  suitable: string;
+  usage: string;
+  usage_kids: string;
+  sk: string;
+  goal: string;
+  additional: string;
+  clinic_situation: string;
+  link: string;
+  must_be: string;
+  must_not_be: string;
+  stage_title: string;
+  stage_description: string;
+  image: string;
   className?: string;
+  buyLink?: string;
+  stage_image: string;
 }
 
 const ProductCard: FC<ProductCardInterface> = ({
-  title,
-  description,
+  brand,
+  name,
+  usage,
   image,
-  buyLink,
   className,
+  buyLink,
 }) => {
   return (
     <div className={clsx('flex text-white flex-col w-full gap-2', className)}>
       {image ? (
         <img
           className={'w-full aspect-square object-cover rounded-xl'}
-          src={image}
+          src={`/images/drugs/${image}`}
         />
       ) : (
         <div
@@ -31,9 +48,10 @@ const ProductCard: FC<ProductCardInterface> = ({
             'bg-black w-full bg-opacity-10 aspect-square rounded-xl'
           }></div>
       )}
-      <ReactMarkdown className={'font-extrabold'}>{title}</ReactMarkdown>
+      <ReactMarkdown
+        className={'font-extrabold'}>{`${brand} ${name}`}</ReactMarkdown>
       <ReactMarkdown className={'leading-[110%] whitespace-pre-line text-sm'}>
-        {description}
+        {usage}
       </ReactMarkdown>
       {buyLink && (
         <Link

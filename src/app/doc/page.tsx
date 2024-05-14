@@ -29,6 +29,8 @@ const DocPage = async (params: any) => {
   headerValues.set('link', 'Ссылка');
   headerValues.set('must_be', 'Есть ответ');
   headerValues.set('must_not_be', 'Нет ответа');
+  headerValues.set('stage_title', 'Заголовок этапа');
+  headerValues.set('stage_description', 'Описание этапа');
 
   const userAnswers = params.searchParams;
 
@@ -67,7 +69,25 @@ const DocPage = async (params: any) => {
 
   console.log(preparats);
 
-  return <div>{JSON.stringify(preparats[0])}</div>;
+  const groupByStage = (arr: Array<any>) => {
+    return arr.reduce((acc, item) => {
+      const key = `${item.stage_title}-${item.stage_description}`;
+      if (!acc[key]) {
+        acc[key] = {
+          stage_title: item.stage_title,
+          stage_description: item.stage_description,
+          preparats: [],
+        };
+      }
+      acc[key].preparats.push(item);
+      return acc;
+    }, {});
+  };
+
+  const groupedData = groupByStage(preparats);
+  const result = Object.values(groupedData);
+
+  return <div>{JSON.stringify(result)}</div>;
 };
 
 export default DocPage;
