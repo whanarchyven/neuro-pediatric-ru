@@ -10,6 +10,7 @@ type Product = {
   stage_title: string;
   stage_description: string;
   stage_image: string;
+  link: string;
 };
 
 const parseQueryParams = (query: URLSearchParams) => {

@@ -22,6 +22,7 @@ export default function Home() {
       ).toString();
       const res = await fetch(`/api/products?${queryParams}`);
       const data = await res.json();
+      console.log(data);
       setProducts(data);
       setIsLoading(false);
     };

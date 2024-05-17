@@ -33,7 +33,7 @@ const ProductCard: FC<ProductCardInterface> = ({
   usage,
   image,
   className,
-  buyLink,
+  link,
 }) => {
   return (
     <div className={clsx('flex text-white flex-col w-full gap-2', className)}>
@@ -53,9 +53,9 @@ const ProductCard: FC<ProductCardInterface> = ({
       <ReactMarkdown className={'leading-[110%] whitespace-pre-line text-sm'}>
         {usage}
       </ReactMarkdown>
-      {buyLink && (
+      {link && (
         <Link
-          href={buyLink}
+          href={link}
           className={
             'tile-shadow bg-cOrange w-fit px-5 py-1 rounded-full text-white font-bold'
           }>

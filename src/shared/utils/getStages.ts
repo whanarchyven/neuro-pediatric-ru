@@ -24,7 +24,7 @@ export const getStages = async () => {
   headerValues.set('goal', 'Цель рекомендации и дальнейшие действия');
   headerValues.set('additional', 'Дополнительное к рекомендации');
   headerValues.set('clinic_situation', 'Пример клинической ситуации');
-  headerValues.set('link', 'Ссылка');
+  headerValues.set('link', 'Ссылки для лендинк на продукт');
   headerValues.set('must', 'Есть ответ');
   headerValues.set('must_not', 'Нет ответа');
   headerValues.set('stage_title', 'Заголовок этапа');
@@ -36,6 +36,7 @@ export const getStages = async () => {
 
   rows.forEach((row) => {
     if (row.get(headerValues.get('is_active')) === '1') {
+      console.log('AAAAAAAAA', row);
       const res: any = {};
       Array.from(headerValues.keys()).forEach((key) => {
         let value = row.get(headerValues.get(key));
