@@ -9,7 +9,7 @@ import { getAnamnes } from '@/shared/utils/getAnamnes';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import LoadingIcon from '../../loading.svg';
-import generatePDF, { Resolution, Options } from 'react-to-pdf';
+// import generatePDF, { Resolution, Options } from 'react-to-pdf';
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -66,58 +66,58 @@ export default function Home() {
     treatmentStages: [],
   };
 
-  const options: Options = {
-    filename: 'receipt.pdf',
-    // default is `save`
-    method: 'save',
-    // default is Resolution.MEDIUM = 3, which should be enough, higher values
-    // increases the image quality but also the size of the PDF, so be careful
-    // using values higher than 10 when having multiple pages generated, it
-    // might cause the page to crash or hang.
-    resolution: Resolution.LOW,
-    canvas: {
-      // default is 'image/jpeg' for better size performance
-      mimeType: 'image/png',
-      qualityRatio: 1,
-    },
-    // customize any value passed to the jsPDF instance and html2canvas
-    // function
-    overrides: {
-      // see https://artskydj.github.io/jsPDF/docs/jsPDF.html for more options
-      pdf: {
-        compress: true,
-      },
-      // see https://html2canvas.hertzen.com/configuration for more options
-      canvas: {
-        useCORS: true,
-      },
-    },
-  };
+  // const options: Options = {
+  //   filename: 'receipt.pdf',
+  //   // default is `save`
+  //   method: 'save',
+  //   // default is Resolution.MEDIUM = 3, which should be enough, higher values
+  //   // increases the image quality but also the size of the PDF, so be careful
+  //   // using values higher than 10 when having multiple pages generated, it
+  //   // might cause the page to crash or hang.
+  //   resolution: Resolution.LOW,
+  //   canvas: {
+  //     // default is 'image/jpeg' for better size performance
+  //     mimeType: 'image/png',
+  //     qualityRatio: 1,
+  //   },
+  //   // customize any value passed to the jsPDF instance and html2canvas
+  //   // function
+  //   overrides: {
+  //     // see https://artskydj.github.io/jsPDF/docs/jsPDF.html for more options
+  //     pdf: {
+  //       compress: true,
+  //     },
+  //     // see https://html2canvas.hertzen.com/configuration for more options
+  //     canvas: {
+  //       useCORS: true,
+  //     },
+  //   },
+  // };
 
-  const openPDF = () => {
-    generatePDF(() => document.getElementById('wrapper'), options);
-  };
-
-  const [hideBtn, setHideBtn] = useState(false);
+  // const openPDF = () => {
+  //   generatePDF(() => document.getElementById('wrapper'), options);
+  // };
+  //
+  // const [hideBtn, setHideBtn] = useState(false);
 
   return (
     <div className={'bg-wrapper pb-10'} id={'wrapper'}>
-      {!isLoading && !hideBtn && (
-        <div
-          style={{ transform: 'translate(-50%, -50%)' }}
-          onClick={() => {
-            alert('Идёт генерация рецепта, ожидайте.');
-            setHideBtn(true);
-            setTimeout(() => {
-              openPDF();
-            }, 1000);
-          }}
-          className={
-            'font-bold min-w-fit cursor-pointer text-sm p-2 rounded-full whitespace-nowrap text-black bg-white fixed z-[99999999] right-[50%] left-[50%] md:left-auto bottom-0.5 md:bottom-2 md:right-2 flex items-center justify-center'
-          }>
-          Скачать в PDF
-        </div>
-      )}
+      {/*{!isLoading && !hideBtn && (*/}
+      {/*  <div*/}
+      {/*    style={{ transform: 'translate(-50%, -50%)' }}*/}
+      {/*    onClick={() => {*/}
+      {/*      alert('Идёт генерация рецепта, ожидайте.');*/}
+      {/*      setHideBtn(true);*/}
+      {/*      setTimeout(() => {*/}
+      {/*        openPDF();*/}
+      {/*      }, 1000);*/}
+      {/*    }}*/}
+      {/*    className={*/}
+      {/*      'font-bold min-w-fit cursor-pointer text-sm p-2 rounded-full whitespace-nowrap text-black bg-white fixed z-[99999999] right-[50%] left-[50%] md:left-auto bottom-0.5 md:bottom-2 md:right-2 flex items-center justify-center'*/}
+      {/*    }>*/}
+      {/*    Скачать в PDF*/}
+      {/*  </div>*/}
+      {/*)}*/}
       <main className={'flex flex-col gap-2'}>
         {isLoading && (
           <div
