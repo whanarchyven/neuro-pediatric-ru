@@ -108,7 +108,9 @@ export default function Home() {
           onClick={() => {
             alert('Идёт генерация рецепта, ожидайте.');
             setHideBtn(true);
-            openPDF();
+            setTimeout(() => {
+              openPDF();
+            }, 1000);
           }}
           className={
             'font-bold min-w-fit cursor-pointer text-sm p-2 rounded-full whitespace-nowrap text-black bg-white fixed z-[99999999] right-[50%] left-[50%] md:left-auto bottom-0.5 md:bottom-2 md:right-2 flex items-center justify-center'
