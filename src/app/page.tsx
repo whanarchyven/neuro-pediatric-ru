@@ -8,7 +8,7 @@ import TreatmentStage, {
 import { getAnamnes } from '@/shared/utils/getAnamnes';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import LoadingIcon from '../../loading.svg';
+// import LoadingIcon from '../../loading.svg';
 import { usePDF } from 'react-to-pdf';
 
 export default function Home() {
@@ -83,14 +83,14 @@ export default function Home() {
         </div>
       )}
       <main className={'flex flex-col gap-2'}>
-        {isLoading && (
-          <div
-            className={
-              'fixed top-0 left-0 loading z-50 w-full h-full flex justify-center items-center'
-            }>
-            <LoadingIcon className={'w-[50px] aspect-square animate-spin'} />
-          </div>
-        )}
+        {/*{isLoading && (*/}
+        {/*  <div*/}
+        {/*    className={*/}
+        {/*      'fixed top-0 left-0 loading z-50 w-full h-full flex justify-center items-center'*/}
+        {/*    }>*/}
+        {/*    <LoadingIcon className={'w-[50px] aspect-square animate-spin'} />*/}
+        {/*  </div>*/}
+        {/*)}*/}
 
         <MainBlock
           description={data.mainBlock.description}
