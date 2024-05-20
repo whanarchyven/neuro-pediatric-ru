@@ -67,14 +67,14 @@ export default function Home() {
   };
 
   const options: Options = {
-    filename: 'advanced-example.pdf',
+    filename: 'receipt.pdf',
     // default is `save`
     method: 'save',
     // default is Resolution.MEDIUM = 3, which should be enough, higher values
     // increases the image quality but also the size of the PDF, so be careful
     // using values higher than 10 when having multiple pages generated, it
     // might cause the page to crash or hang.
-    resolution: Resolution.NORMAL,
+    resolution: Resolution.LOW,
     canvas: {
       // default is 'image/jpeg' for better size performance
       mimeType: 'image/png',
@@ -98,12 +98,16 @@ export default function Home() {
     generatePDF(() => document.getElementById('wrapper'), options);
   };
 
+  const [hideBtn, setHideBtn] = useState(false);
+
   return (
     <div className={'bg-wrapper pb-10'} id={'wrapper'}>
-      {!isLoading && (
+      {!isLoading && !hideBtn && (
         <div
           style={{ transform: 'translate(-50%, -50%)' }}
           onClick={() => {
+            alert('Идёт генерация рецепта, ожидайте.');
+            setHideBtn(true);
             openPDF();
           }}
           className={
