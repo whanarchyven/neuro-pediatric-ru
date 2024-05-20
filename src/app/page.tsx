@@ -9,6 +9,7 @@ import { getAnamnes } from '@/shared/utils/getAnamnes';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import LoadingIcon from '../../loading.svg';
+import { usePDF } from 'react-to-pdf';
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -47,26 +48,40 @@ export default function Home() {
         {
           title: 'Анамнез:',
           description: anamnes,
-          icon: '/icons/profile.svg',
+          icon: '/icons/profile.png',
         },
         {
           description:
             'Вам требуется консультация дерматолога для назначения и/или коррекции лекарственного лечения.',
-          icon: '/icons/consultation.svg',
+          icon: '/icons/consultation.png',
           isActive: true,
         },
         {
           description:
             'Для **облегчения** состояния кожи ребенка и предотвращения раздражения, следуйте рекомендациям в следующих блоках.\n',
-          icon: '/icons/tablets.svg',
+          icon: '/icons/tablets.png',
         },
       ],
     },
     treatmentStages: [],
   };
 
+  const { toPDF, targetRef } = usePDF({ filename: 'page.pdf' });
+
   return (
-    <>
+    <div className={'bg-wrapper pb-10'} ref={targetRef}>
+      {!isLoading && (
+        <div
+          style={{ transform: 'translate(-50%, -50%)' }}
+          onClick={() => {
+            toPDF();
+          }}
+          className={
+            'font-bold min-w-fit cursor-pointer text-sm p-2 rounded-full whitespace-nowrap text-black bg-white fixed z-[99999999] right-[50%] left-[50%] md:left-auto bottom-0.5 md:bottom-2 md:right-2 flex items-center justify-center'
+          }>
+          Скачать в PDF
+        </div>
+      )}
       <main className={'flex flex-col gap-2'}>
         {isLoading && (
           <div
@@ -82,7 +97,7 @@ export default function Home() {
           title={data.mainBlock.title}
           tiles={data.mainBlock.tiles}
         />
-        <div className={'flex sm:px-10 p-2 flex-col gap-2'}>
+        <div className={'flex treatment sm:px-10 p-2 flex-col gap-2'}>
           {products.map((stage: any, index: number) => {
             if (stage.stage_title) {
               return (
@@ -99,6 +114,6 @@ export default function Home() {
           })}
         </div>
       </main>
-    </>
+    </div>
   );
 }

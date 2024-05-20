@@ -14,6 +14,11 @@
     }
   }
 
+  .bg-wrapper {
+    background: radial-gradient(circle, #5eccb8, #005d52, #012d37);
+    background-repeat: round;
+  }
+
   .loading {
     height: 100%;
     background: radial-gradient(circle, #5eccb8, #005d52, #012d37);
@@ -56,8 +61,8 @@ html {
 html,
 body {
   height: 100%;
-  background: radial-gradient(circle, #5eccb8, #005d52, #012d37);
-  background-repeat: round;
+  /*background: radial-gradient(circle, #5eccb8, #005d52, #012d37);*/
+  /*background-repeat: round;*/
   font-family: 'Inter';
 }
 

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import MainBlockBgImage from '@/widgets/main-block/ui/main-block-bg-image';
 import InfoTab from '@/shared/ui/info-tab';
 import InfoTile, { InfoTileInterface } from '@/shared/ui/info-tile';
 import ArrowsIcon from '../../../public/images/arrows_mainblock.svg';
@@ -13,10 +12,10 @@ export interface MainBlockInterface {
 
 const MainBlock: FC<MainBlockInterface> = ({ title, tiles, description }) => {
   return (
-    <div className={'w-full sm:px-10 p-2 flex flex-col gap-3'}>
-      <div className={'absolute top-0 w-full h-fit left-0'}>
-        <MainBlockBgImage />
-      </div>
+    <div className={'w-full  main-block sm:px-10 p-2 flex flex-col gap-3'}>
+      {/*<div className={'absolute top-0 w-full h-fit left-0'}>*/}
+      {/*  <MainBlockBgImage />*/}
+      {/*</div>*/}
       <InfoTab>
         <div className={'flex flex-col text-white p-4 sm:p-8 gap-4'}>
           <ReactMarkdown className={'whitespace-pre sm:text-xl font-extrabold'}>
