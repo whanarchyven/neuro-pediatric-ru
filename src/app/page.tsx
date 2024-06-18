@@ -26,7 +26,7 @@ export default function Home() {
       const queryParams = new URLSearchParams(
         searchParams.toString()
       ).toString();
-      const localeTemp = searchParams.get('lang') ?? 'ru';
+      const localeTemp = 'ru';
       setAnamnes(
         localeTemp == 'ru'
           ? getAnamnes(searchParams.get('1.2.6.1') ?? '2')

@@ -71,6 +71,7 @@ const TreatmentStage: FC<TreatmentStageInterface> = ({
                       </div>
                     ) : null}
                     <ProductCard
+                      locale={'ru'}
                       className={'w-full sm:w-2/6'}
                       {...drug}></ProductCard>
                   </>
