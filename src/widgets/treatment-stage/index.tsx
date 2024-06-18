@@ -10,6 +10,7 @@ export interface TreatmentStageInterface {
   image?: string;
   drugs?: ProductCardInterface[];
   displayArrow?: boolean;
+  locale?: string;
 }
 
 const TreatmentStage: FC<TreatmentStageInterface> = ({
@@ -18,6 +19,7 @@ const TreatmentStage: FC<TreatmentStageInterface> = ({
   drugs,
   image,
   displayArrow,
+  locale,
 }) => {
   return (
     <InfoTab className={'sm:p-6 p-4'}>
@@ -51,7 +53,7 @@ const TreatmentStage: FC<TreatmentStageInterface> = ({
         {drugs && drugs.length > 0 && (
           <div className={'flex flex-col gap-2'}>
             <p className={'text-white font-extrabold mb-3 sm:text-xl'}>
-              Средства:
+              {locale == 'ru' ? 'Средства' : 'Supplies'}:
             </p>
             <div
               className={
@@ -65,7 +67,7 @@ const TreatmentStage: FC<TreatmentStageInterface> = ({
                         className={
                           'font-normal sm:self-start sm:mt-10 p-1 sm:p-3 bg-black bg-opacity-10 rounded-full text-white aspect-square sm:text-base text-sm flex items-center justify-center'
                         }>
-                        ИЛИ
+                        {locale == 'ru' ? 'ИЛИ' : 'OR'}
                       </div>
                     ) : null}
                     <ProductCard

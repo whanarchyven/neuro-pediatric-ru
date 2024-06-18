@@ -98,12 +98,16 @@ export async function GET(req: NextRequest) {
 
   const userAnswers = parseQueryParams(searchParams);
 
-  const products: Product[] = await getStages();
-  console.log(products, 'Products');
+  const products: Product[] = await getStages(
+    searchParams.get('lang') == 'en' ? 1 : 0
+  );
+  // console.log(products, 'Products');
 
   const matchingProducts = products.filter((product) =>
     isMatchingProduct(product, userAnswers)
   );
+
+  // console.log(matchingProducts,"Matching products")
   const groupedProducts = groupByStage(matchingProducts);
 
   return NextResponse.json(groupedProducts);

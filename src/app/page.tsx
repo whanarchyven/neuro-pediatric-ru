@@ -9,6 +9,7 @@ import { getAnamnes } from '@/shared/utils/getAnamnes';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import LoadingIcon from '../../loading.svg';
+import { getAnamnesEn } from '@/shared/utils/getAnamnesEn';
 // import generatePDF, { Resolution, Options } from 'react-to-pdf';
 
 export default function Home() {
@@ -16,21 +17,30 @@ export default function Home() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [anamnes, setAnamnes] = useState('');
+
+  const [locale, setLocale] = useState('ru');
+
   useEffect(() => {
     const fetchProducts = async () => {
       const queryParams = new URLSearchParams(
         searchParams.toString()
       ).toString();
+      const localeTemp = searchParams.get('lang') ?? 'ru';
+      setAnamnes(
+        localeTemp == 'ru'
+          ? getAnamnes(searchParams.get('1.2.6.1') ?? '2')
+          : getAnamnesEn(searchParams.get('1.2.6.1') ?? '2')
+      );
+      setLocale(localeTemp);
       const res = await fetch(`/api/products?${queryParams}`);
       const data = await res.json();
-      console.log(data);
+      // console.log(data,"DATAAA");
       setProducts(data);
       setIsLoading(false);
     };
     fetchProducts();
   }, [searchParams]);
-
-  const anamnes = getAnamnes('2');
 
   const data: {
     mainBlock: MainBlockInterface;
@@ -59,6 +69,40 @@ export default function Home() {
         {
           description:
             'Для **облегчения** состояния кожи ребенка и предотвращения раздражения, следуйте рекомендациям в следующих блоках.\n',
+          icon: '/icons/tablets.png',
+        },
+      ],
+    },
+    treatmentStages: [],
+  };
+
+  const enData: {
+    mainBlock: MainBlockInterface;
+    treatmentStages: TreatmentStageInterface[];
+  } = {
+    mainBlock: {
+      title: 'Personal Skin \n' + 'Care Program',
+      description:
+        '**A digital prescription** – is your personal guide to healthy skin.\n' +
+        '\n' +
+        'Created especially for you, it takes into account all the characteristics of your skin type, individual needs, and preferences.\n' +
+        '\n' +
+        'With it, you will receive precise care and treatment recommendations, always available on your smartphone or computer.\n',
+      tiles: [
+        {
+          title: 'Anamnesis:',
+          description: anamnes,
+          icon: '/icons/profile.png',
+        },
+        {
+          description:
+            'You need a consultation with a dermatologist to prescribe and/or adjust drug treatment.',
+          icon: '/icons/consultation.png',
+          isActive: true,
+        },
+        {
+          description:
+            "**To relieve** your baby's skin and prevent irritation, follow the recommendations in the following blocks.\n",
           icon: '/icons/tablets.png',
         },
       ],
@@ -129,9 +173,13 @@ export default function Home() {
         )}
 
         <MainBlock
-          description={data.mainBlock.description}
-          title={data.mainBlock.title}
-          tiles={data.mainBlock.tiles}
+          description={
+            locale == 'ru'
+              ? data.mainBlock.description
+              : enData.mainBlock.description
+          }
+          title={locale == 'ru' ? data.mainBlock.title : enData.mainBlock.title}
+          tiles={locale == 'ru' ? data.mainBlock.tiles : enData.mainBlock.tiles}
         />
         <div className={'flex treatment sm:px-10 p-2 flex-col gap-2'}>
           {products.map((stage: any, index: number) => {
@@ -139,6 +187,7 @@ export default function Home() {
               return (
                 <TreatmentStage
                   key={index}
+                  locale={locale}
                   displayArrow
                   title={stage.stage_title}
                   image={`/images/stages/${stage.stage_image}`}

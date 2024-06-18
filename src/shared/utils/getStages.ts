@@ -1,13 +1,13 @@
 // shared/utils/getStages.ts
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-export const getStages = async () => {
+export const getStages = async (listIndex: 1 | 0) => {
   const doc = new GoogleSpreadsheet(
     '1KNqlgf-Mmyb_gYnK-_c7GebI2ifgUoAJ_zytg43wUM4',
     { apiKey: process.env.GOOGLE_API_KEY ?? '' }
   );
   await doc.loadInfo(); // Загрузка данных документа
-  const sheet = doc.sheetsByIndex[0]; // доступ к первому листу
+  const sheet = doc.sheetsByIndex[listIndex]; // доступ к первому листу
 
   const rows = await sheet.getRows(); // чтение данных
 
@@ -36,7 +36,7 @@ export const getStages = async () => {
 
   rows.forEach((row) => {
     if (row.get(headerValues.get('is_active')) === '1') {
-      console.log('AAAAAAAAA', row);
+      // console.log('AAAAAAAAA', row);
       const res: any = {};
       Array.from(headerValues.keys()).forEach((key) => {
         let value = row.get(headerValues.get(key));

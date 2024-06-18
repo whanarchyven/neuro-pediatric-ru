@@ -25,6 +25,7 @@ export interface ProductCardInterface {
   className?: string;
   buyLink?: string;
   stage_image: string;
+  locale?: string;
 }
 
 const ProductCard: FC<ProductCardInterface> = ({
@@ -34,6 +35,7 @@ const ProductCard: FC<ProductCardInterface> = ({
   image,
   className,
   link,
+  locale,
 }) => {
   return (
     <div className={clsx('flex text-white flex-col w-full gap-2', className)}>
@@ -59,7 +61,7 @@ const ProductCard: FC<ProductCardInterface> = ({
           className={
             'tile-shadow bg-cOrange w-fit px-5 py-1 rounded-full text-white font-bold'
           }>
-          Купить
+          {locale == 'ru' ? 'Купить' : 'Buy'}
         </Link>
       )}
     </div>
